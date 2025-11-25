@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>National Daily Event Calendar - Editorial Scheduler</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <script>
+      // Shim process.env for the application
+      window.process = {
+        env: {
+          API_KEY: "__NETLIFY_API_KEY__"
+        }
+      };
+      
       tailwind.config = {
         theme: {
           extend: {
@@ -45,5 +53,6 @@
 </head>
   <body>
     <div id="root"></div>
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
   </body>
 </html>
